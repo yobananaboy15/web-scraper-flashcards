@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import SearchInput from './SearchInput';
 import './App.css';
+
 
 function App() {
 
-  const [state, setState] = useState({apiReponse: ""});
-  // console.log(state);
+  const [apiState, setApiRequest] = useState(false);
 
-  if (!state.apiReponse){  
-    fetch('http://localhost:9000/testAPI')
-      .then(res => res.text())
-      .then(res => setState({apiReponse: res}))
-      .catch(err => err);
-  };  
-  
-  console.log(state.apiReponse.meaning);
+  useEffect( () => fetch('http://localhost:9000/testAPI')
+  .then(res => res.text())
+  .then(res => setApiRequest(res))
+  .catch(err => err), []);    
 
-  return (
-    <p>
-      hej
-    </p>
-  );
+  if (apiState){
+    return apiState
+  } else {
+    return (
+      <p>
+      Loading data...
+      </p>
+    );
+  }
 }
+
+//skapa en knapp som låter användaren skriva in sökord och hämta rätt data. skicka datan via någon parameter? i GET-requesten.
+
 
 export default App;
