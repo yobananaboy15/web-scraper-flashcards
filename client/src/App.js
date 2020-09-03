@@ -8,22 +8,36 @@ function App() {
   const [apiState, setApiRequest] = useState(false);
 
   useEffect( () => fetch('http://localhost:9000/testAPI')
-  .then(res => res.text())
-  .then(res => setApiRequest(res))
-  .catch(err => err), []);    
+    .then(res => res.json())
+    .then(res => setApiRequest(res))
+    .catch(err => err), []);    
 
   if (apiState){
-    return apiState
+    console.log(apiState)
+    return (
+      <div>
+        <div>
+          {apiState.reading}
+        </div>
+        <div>
+          {apiState.meaning}
+        <div>
+          <SearchInput />
+        </div>
+        </div>
+      </div>
+    )
   } else {
     return (
-      <p>
+      <div>
       Loading data...
-      </p>
+        <div> <SearchInput /></div>
+      </div>
     );
   }
 }
 
-//skapa en knapp som låter användaren skriva in sökord och hämta rätt data. skicka datan via någon parameter? i GET-requesten.
+//skapa en knapp som låter användaren skriva in sökord och hämta rätt data. skicka datan via någon querystring? i GET-requesten.
 
 
 export default App;
