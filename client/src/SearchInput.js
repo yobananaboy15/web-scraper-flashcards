@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 
-function SearchInput () {
+function SearchInput (kek) {
+
+    
+    props.kek('hej');
+
     const [searchQuery, setSearchQuery] = useState(""); 
 
     return (
