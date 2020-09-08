@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import SearchInput from './SearchInput';
+import React from 'react';
 import ShowData from './ShowData';
 import './App.css';
 
 
 function App() {
-  
+
   return(
   <>
     <ShowData />

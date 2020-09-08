@@ -3,21 +3,30 @@ import SearchInput from './SearchInput';
 
 function ShowData () { 
 
+  //skicka med en parameter som är == quer
+
   const setQueryString = (queryString) => {
     setQueryState(queryString)
   }
 
   const [queryStringState, setQueryState] = useState("")
-  const [apiState, setApiRequest] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchedData, setFetchedData] = useState("")
 
-  useEffect( () => fetch('http://localhost:9000/testAPI')
+  useEffect( () => {
+    setIsLoading(true);
+    fetch('http://localhost:9000/testAPI') //`http://localhost:9000/testAPI=${queryStringState}`
     .then(res => res.json())
-    .then(res => setApiRequest(res))
-    .catch(err => err), []);    
+    .then(data => {
+      setFetchedData(data);
+      setIsLoading(false);
+    })
+    .catch(err => err);
+  }, [queryStringState]);    
 
   return  (
     <div>
-        {apiState ? <div>{apiState.reading}{apiState.meaning}</div> : <div>Loading data...</div>}
+        {isLoading ? <div>Loading data...</div> : <div>{fetchedData.reading}{fetchedData.meaning}</div>}
         <SearchInput setQuery={setQueryString}/> 
         {queryStringState}
     </div>
