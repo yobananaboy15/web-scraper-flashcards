@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 
-function SearchInput (kek) {
-
-    
-    props.kek('hej');
+function SearchInput (props) {
 
     const [searchQuery, setSearchQuery] = useState(""); 
-
+    
     return (
     <div>
-        <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} /> <button>Submit</button>
+        <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} /> <button onClick={() => props.kek(searchQuery)}>Submit</button>
     </div>
     )
 }

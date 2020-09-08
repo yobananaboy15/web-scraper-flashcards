@@ -5,7 +5,12 @@ import './App.css';
 
 
 function App() {
-  const [testState, updateTestState] = useState('');
+
+  const updateText = (text) => {
+    updateTestState(text)
+  }
+
+  const [testState, updateTestState] = useState('hej');
 
   // function updateState (input) {
   //   updateTestState(input)
@@ -14,7 +19,7 @@ function App() {
   return(
   <>
     <ShowData />
-    <SearchInput kek={updateTestState}/>
+    <SearchInput kek={updateText}/>
     <div>{testState}</div>
   </>
   )
