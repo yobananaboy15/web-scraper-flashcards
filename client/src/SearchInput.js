@@ -6,7 +6,7 @@ function SearchInput (props) {
     
     return (
     <div>
-        <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} /> <button onClick={() => props.updateQueryString(searchQuery)}>Submit</button>
+        <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} /> <button onClick={() => props.setQuery(searchQuery)}>Submit</button>
     </div>
     )
 }

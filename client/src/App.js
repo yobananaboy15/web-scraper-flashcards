@@ -5,18 +5,10 @@ import './App.css';
 
 
 function App() {
-
-  const updateQueryString = (text) => {
-    updateQueryState(text)
-  };
-
-  const [queryState, updateQueryState] = useState('hej');
-
+  
   return(
   <>
     <ShowData />
-    <SearchInput updateQueryString={updateQueryString}/>
-    <div>{queryState}</div>
   </>
   )
 }
