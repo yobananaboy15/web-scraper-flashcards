@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 
 function SearchInput (props) {
@@ -16,4 +17,21 @@ function SearchInput (props) {
 //app.js lägger in inputen i sin server request.
 //express använder querystringen för att söka.
 
+=======
+import React, { useState } from 'react';
+
+function SearchInput (query) {
+
+    const [queryString, setQueryString] = useState('')
+
+    return (
+        <>
+        <input type='text' value={queryString} onChange={e => setQueryString(e.target.value)} />
+        <button onClick={e => console.log(queryString)}>Test</button>
+        </>
+    )
+};
+
+
+>>>>>>> 48bbf2a1e87f7840e0be1973730637983a3139eb
 export default SearchInput;
