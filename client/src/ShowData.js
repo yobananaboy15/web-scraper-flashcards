@@ -4,6 +4,7 @@ import SearchInput from './SearchInput';
 function ShowData () { 
 
   //skicka med en parameter som är == quer
+  //lägger till kommentar för att testa commit genom vs code
 
   const setQueryString = (queryString) => {
     setQueryState(queryString)
