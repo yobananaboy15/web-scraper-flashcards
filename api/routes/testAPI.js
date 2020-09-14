@@ -24,7 +24,7 @@ const searchWeblio = async (searchQuery) =>{
 };
 
 router.get('/', async function(req, res, next) {
-    let data = await searchWeblio('猫'); 
+    let data = await searchWeblio(req.query.word); 
     res.send(data);
 });
 
